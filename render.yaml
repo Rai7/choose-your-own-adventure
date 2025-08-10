@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: story-backend
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && python start.py
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
