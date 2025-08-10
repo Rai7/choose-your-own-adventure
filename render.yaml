@@ -1,9 +1,8 @@
 services:
   - type: web
     name: story-backend
-    runtime: python
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && gunicorn -c gunicorn.conf.py main:app
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
     plan: free
     envVars:
       - key: PORT
