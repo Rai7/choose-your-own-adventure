@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -6,6 +7,10 @@ from routers import story, job
 from db.database import create_tables
 
 create_tables()
+
+# Ensure we use the correct port for Render
+port = int(os.environ.get("PORT", 10000))
+print(f"FastAPI app configured for port: {port}")
 
 app = FastAPI(
     title="Choose Your Own Adventure Game API",
